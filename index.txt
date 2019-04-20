@@ -1,0 +1,22 @@
+Home:
+  Contact:
+    Email:
+    Discord:
+   Forum:
+    Read:
+    Create:
+    Edit:
+    Delete:
+    React:
+   Media:
+    Video:
+      Add:
+      Delete:
+      Comment:
+    Stream:
+      Live:
+      Offline:
+    Images:
+      Add:
+      Remove:
+      Comment:
