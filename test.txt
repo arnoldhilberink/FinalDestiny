@@ -1,0 +1,9 @@
+from flaskblog import db
+db.create_all()
+from flaskblog import User, Post
+
+a = User(family_name='doe', email='john@doe.test', password='password')
+db.session.add(a)
+b = User(family_name='doe2', email='jane@doe.test', password='password')
+db.session.add(b)
+db.session.commit()
