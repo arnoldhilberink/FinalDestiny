@@ -7,3 +7,10 @@ db.session.add(a)
 b = User(family_name='doe2', email='jane@doe.test', password='password')
 db.session.add(b)
 db.session.commit()
+
+
+a= Post(title='test', content='tested!', user_id=1)
+b= Post(title='test2', content='2nd time tested!', user_id=1)
+db.session.add(a)
+db.session.add(b)
+db.session.commit()
