@@ -4,19 +4,19 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
+                <legend class="border-bottom mb-4">Final Destiny Roundtable Registration</legend>
                 <div class="form-group">
-                    {{ form.username.label(class="form-control-label") }}
+                    {{ form.family_name.label(class="form-control-label") }}
 
-                    {% if form.username.errors %}
-                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                    {% if form.family_name.errors %}
+                        {{ form.family_name(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
-                            {% for error in form.username.errors %}
+                            {% for error in form.family_name.errors %}
                                 <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                     {% else %}
-                        {{ form.username(class="form-control form-control-lg") }}
+                        {{ form.family_name(class="form-control form-control-lg") }}
                     {% endif %}
                 </div>
                 <div class="form-group">
