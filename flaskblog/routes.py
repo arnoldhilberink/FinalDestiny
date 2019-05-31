@@ -1,6 +1,6 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from flaskblog.models import User, Post
-from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from flaskblog import app, db, bcrypt
 from flask_login import login_user, logout_user,current_user,login_required
 
@@ -67,10 +67,23 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
-@app.route("/account" )
+@app.route("/account" , methods=['GET', 'POST'])
 @login_required
 def account():
-    return render_template('account.html', title='Account')
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        current_user.family_name = form.family_name.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Your account has bin updated', 'succes')
+        return redirect(url_for('account'))
+    elif request.method == 'GET':
+        form.family_name.data = current_user.family_name
+        form.email.data = current_user.email
+   
+    image_file = url_for('static', filename='img/' + current_user.image_file)
+    return render_template('account.html', title='Account', image_file=image_file,
+    form=form)
          
 
     
