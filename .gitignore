@@ -1,5 +1,0 @@
-
-#ignore directories
-!.\__pycache__
-#ignore files
-!test.txt

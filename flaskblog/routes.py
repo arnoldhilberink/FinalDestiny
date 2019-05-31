@@ -75,7 +75,7 @@ def account():
         current_user.family_name = form.family_name.data
         current_user.email = form.email.data
         db.session.commit()
-        flash('Your account has bin updated', 'succes')
+        flash('Your account has been updated',  'success')
         return redirect(url_for('account'))
     elif request.method == 'GET':
         form.family_name.data = current_user.family_name
