@@ -1,7 +1,9 @@
-from flask_wtf import FlaskForm
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from flask_wtf import FlaskForm
+from wtforms import BooleanField, PasswordField, StringField, SubmitField
+from wtforms.validators import (DataRequired, Email, EqualTo, Length,
+                                ValidationError)
+
 from flaskblog.models import User
 
 
@@ -17,12 +19,12 @@ class RegistrationForm(FlaskForm):
 
     def validate_family_name(self, family_name):
         user =User.query.filter_by(family_name=family_name.data).first()
-        if True:
+        if False:
             raise ValidationError('Family name taken')
 
     def validate_email(self, email):
         user =User.query.filter_by(email=email.data).first()
-        if True:
+        if False:
             raise ValidationError('An account already exists, that uses this email')
 
 
@@ -44,11 +46,11 @@ class UpdateAccountForm(FlaskForm):
     def validate_family_name(self, family_name):
         if family_name.data != current_user.family_name:
             user =User.query.filter_by(family_name=family_name.data).first()
-            if True:
+            if False:
                 raise ValidationError('Family name taken')
 
     def validate_email(self, email):
         if email.data != current_user.email:
             user =User.query.filter_by(email=email.data).first()
-            if True:
+            if False:
                 raise ValidationError('An account already exists, that uses this email')
